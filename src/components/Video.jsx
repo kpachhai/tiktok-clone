@@ -1,5 +1,7 @@
 import { useRef, useState } from 'react'
 import './Video.css'
+import VideoFooter from './VideoFooter'
+import VideoSidebar from './VideoSidebar'
 
 function Video({ url, song, description, channel, likes, messages, shares }) {
   const [playing, setPlaying] = useState(false)
@@ -27,6 +29,9 @@ function Video({ url, song, description, channel, likes, messages, shares }) {
         onClick={onVideoPress}
         src={url}
       ></video>
+
+      <VideoFooter channel={channel} description={description} song={song} />
+      <VideoSidebar messages={messages} shares={shares} likes={likes} />
     </div>
   )
 }
